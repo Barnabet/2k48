@@ -1,0 +1,23 @@
+2026-08-05T22:35:08+00:00 === night driver up ===
+2026-08-05T22:35:08+00:00 waiting for phase 1 to finish
+2026-08-06T00:17:42+00:00 phase 1 finished
+2026-08-06T00:17:42+00:00 stopped phase-1 keeper
+2026-08-06T00:17:52+00:00 common ancestor: runs/best.bin -> runs/ab/base.bin
+2026-08-06T00:18:06+00:00 base mean = 206462
+2026-08-06T00:18:06+00:00 round 1: 3 arms x 4 threads x 150 min
+2026-08-06T00:18:06+00:00 arms launched: 68800 68801 68802 
+2026-08-06T02:48:23+00:00 round 1 training done
+2026-08-06T02:49:23+00:00 JUDGE single: mean=214526 +/-659  16384=44.35%  model=runs/ab/single_best.bin
+2026-08-06T02:50:26+00:00 JUDGE derived: mean=213855 +/-676  16384=44.88%  model=runs/ab/derived_best.bin
+2026-08-06T02:51:29+00:00 JUDGE classic: mean=212906 +/-676  16384=44.02%  model=runs/ab/classic_best.bin
+2026-08-06T02:51:29+00:00 WINNER: single (mean 214526)
+2026-08-06T02:51:33+00:00 round 2: winner=single, 14 threads, alpha 0.1, 160 min
+2026-08-06T05:31:42+00:00 round 2 exit=0
+2026-08-06T05:31:45+00:00 round 3: polish, alpha 0.05, 70 min, from runs/final_best.bin
+2026-08-06T06:41:52+00:00 round 3 exit=0
+2026-08-06T06:42:25+00:00 final model: runs/model.bin -> runs/final.bin
+2026-08-06T06:42:25+00:00 final evaluation
+2026-08-06T06:43:26+00:00 greedy mean = 234160
+2026-08-06T06:59:16+00:00 depth-2 mean = 342006
+2026-08-06T07:15:16+00:00 recorded web/games.json
+2026-08-06T07:15:18+00:00 === NIGHT RUN COMPLETE ===

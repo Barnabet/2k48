@@ -1,0 +1,23 @@
+2026-08-07T03:52:07+00:00 incumbent preserved: runs/round8_final.bin
+2026-08-07T03:52:07+00:00 round 9: restart(frac=0.5 tile=14) vs control, 7 threads each, 240 min, src=runs/final.bin
+2026-08-07T03:52:07+00:00 keeper rst pid 217542
+2026-08-07T03:52:07+00:00 keeper ctl pid 217544
+2026-08-07T03:52:07+00:00 arms launched
+2026-08-07T07:53:13+00:00 arms finished
+2026-08-07T07:53:13+00:00 arm rst episodes: 462000
+2026-08-07T07:53:13+00:00 arm ctl episodes: 334000
+2026-08-07T07:53:13+00:00 restart diag (episodes,restart_eps,restart_32k,pool): 462000,230653,804,65536
+final selection — 20000 games per candidate, seed 23, 2026-08-07T07:53:18+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round8_final.bin               267849      639     290488    68.94%     0.07%
+r9_rst.bin                     265330      640     290192    67.89%     0.04%
+r9_ctl.bin                     269231      639     290620    69.42%     0.10%
+
+SELECTED: runs/r9_ctl.bin  mean=269231 +/-639
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-07T08:01:24+00:00 selection exit=0
+2026-08-07T08:01:24+00:00 === ROUND 9 COMPLETE ===

@@ -1,0 +1,2 @@
+episodes,elapsed_s,mean_score,max_score,moves_per_s,r1024,r2048,r4096,r8192,r16384,r32768,mean_value,mean_abs_td_error
+10000,31.5,58987.7,173080,889449,98.8700,90.7400,54.7000,4.6300,0.0000,0.0000,21039.39,199.34

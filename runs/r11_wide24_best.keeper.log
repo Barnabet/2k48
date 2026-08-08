@@ -1,0 +1,26 @@
+2026-08-07T21:00:45+00:00 keeper started on runs/r11_wide24.bin: 600 games, 1 threads, poll 300s
+2026-08-07T21:37:48+00:00 NEW BEST mean=275154 (was -1)  2048=99.33% 8192=94.83% 16384=71.17%
+2026-08-07T22:04:40+00:00 NEW BEST mean=276286 (was 275154)  2048=99.67% 8192=95.50% 16384=71.67%
+2026-08-07T22:36:33+00:00 kept existing best mean=276286; checkpoint scored 274255
+2026-08-07T23:03:30+00:00 NEW BEST mean=278054 (was 276286)  2048=99.83% 8192=94.33% 16384=72.83%
+2026-08-07T23:35:29+00:00 NEW BEST mean=281029 (was 278054)  2048=99.33% 8192=93.83% 16384=73.67%
+2026-08-08T00:07:22+00:00 kept existing best mean=281029; checkpoint scored 275677
+2026-08-08T00:34:12+00:00 kept existing best mean=281029; checkpoint scored 279493
+2026-08-08T01:06:13+00:00 NEW BEST mean=283149 (was 281029)  2048=99.83% 8192=95.50% 16384=74.17%
+2026-08-08T01:38:07+00:00 kept existing best mean=283149; checkpoint scored 277823
+2026-08-08T02:04:59+00:00 kept existing best mean=283149; checkpoint scored 282805
+2026-08-08T02:36:58+00:00 kept existing best mean=283149; checkpoint scored 282604
+2026-08-08T03:03:55+00:00 NEW BEST mean=288551 (was 283149)  2048=99.67% 8192=95.17% 16384=77.00%
+2026-08-08T03:35:51+00:00 kept existing best mean=288551; checkpoint scored 280160
+2026-08-08T04:07:51+00:00 kept existing best mean=288551; checkpoint scored 283945
+2026-08-08T04:34:40+00:00 kept existing best mean=288551; checkpoint scored 278814
+2026-08-08T05:06:35+00:00 kept existing best mean=288551; checkpoint scored 284579
+2026-08-08T05:34:00+00:00 kept existing best mean=288551; checkpoint scored 281113
+2026-08-08T06:06:18+00:00 kept existing best mean=288551; checkpoint scored 284762
+2026-08-08T06:38:45+00:00 kept existing best mean=288551; checkpoint scored 277293
+2026-08-08T07:06:21+00:00 kept existing best mean=288551; checkpoint scored 286948
+2026-08-08T07:38:45+00:00 kept existing best mean=288551; checkpoint scored 278736
+2026-08-08T08:05:56+00:00 kept existing best mean=288551; checkpoint scored 286547
+2026-08-08T08:38:29+00:00 kept existing best mean=288551; checkpoint scored 282586
+2026-08-08T09:05:59+00:00 kept existing best mean=288551; checkpoint scored 283060
+2026-08-08T09:20:59+00:00 stop file seen; exiting

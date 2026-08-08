@@ -1,0 +1,20 @@
+2026-08-07T21:00:45+00:00 keeper started on runs/r11_ctl.bin: 600 games, 1 threads, poll 300s
+2026-08-07T21:46:58+00:00 NEW BEST mean=275069 (was -1)  2048=99.50% 8192=94.50% 16384=71.67%
+2026-08-07T22:28:04+00:00 kept existing best mean=275069; checkpoint scored 271559
+2026-08-07T23:09:12+00:00 kept existing best mean=275069; checkpoint scored 269541
+2026-08-07T23:50:25+00:00 NEW BEST mean=278925 (was 275069)  2048=99.67% 8192=93.67% 16384=74.00%
+2026-08-08T00:31:30+00:00 kept existing best mean=278925; checkpoint scored 268583
+2026-08-08T01:12:35+00:00 kept existing best mean=278925; checkpoint scored 268233
+2026-08-08T01:53:40+00:00 kept existing best mean=278925; checkpoint scored 271714
+2026-08-08T02:34:47+00:00 kept existing best mean=278925; checkpoint scored 267789
+2026-08-08T03:15:54+00:00 kept existing best mean=278925; checkpoint scored 272472
+2026-08-08T03:57:03+00:00 kept existing best mean=278925; checkpoint scored 277301
+2026-08-08T04:38:14+00:00 kept existing best mean=278925; checkpoint scored 267389
+2026-08-08T05:19:37+00:00 kept existing best mean=278925; checkpoint scored 270233
+2026-08-08T05:55:59+00:00 kept existing best mean=278925; checkpoint scored 268619
+2026-08-08T06:37:25+00:00 kept existing best mean=278925; checkpoint scored 268619
+2026-08-08T07:19:04+00:00 kept existing best mean=278925; checkpoint scored 276014
+2026-08-08T08:00:41+00:00 kept existing best mean=278925; checkpoint scored 277734
+2026-08-08T08:42:08+00:00 kept existing best mean=278925; checkpoint scored 267982
+2026-08-08T09:03:39+00:00 kept existing best mean=278925; checkpoint scored 275786
+2026-08-08T09:18:39+00:00 stop file seen; exiting

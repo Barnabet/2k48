@@ -1,0 +1,12 @@
+Exact optimal-play ceilings on a 3x3 board
+(probability that PERFECT play ever produces the tile)
+
+      tile        ceiling    states solved
+         4    100.000000%               25
+         8    100.000000%             1434
+        16    100.000000%            22353
+        32    100.000000%           179021
+        64    100.000000%           914238
+       128     99.999981%          3370144
+       256     99.570964%          9714246
+       512     73.677418%         23108619

@@ -1,0 +1,23 @@
+2026-08-07T21:00:45+00:00 round 11: wide24 vs ctl16, 7 threads each, wide 735 min / ctl 720 min, src=runs/round9_final.bin, judge seed 37
+2026-08-07T21:00:45+00:00 keeper wide24 pid 262662
+2026-08-07T21:00:45+00:00 keeper ctl pid 262664
+2026-08-07T21:00:45+00:00 arms launched
+2026-08-08T09:17:02+00:00 arms finished
+2026-08-08T09:17:02+00:00 arm wide24 episodes: 618000
+2026-08-08T09:17:02+00:00 arm ctl episodes: 968000
+final selection — 20000 games per candidate, seed 37, 2026-08-08T09:17:07+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round9_final.bin               268726      640     290508    69.45%     0.07%
+r11_wide24.bin                 283313      645     326640    74.22%     0.14%
+r11_ctl.bin                    271828      639     290596    71.18%     0.07%
+r11_wide24_best.bin            281688      645     322904    74.19%     0.12%
+r11_ctl_best.bin               271109      638     290648    70.58%     0.06%
+
+SELECTED: runs/r11_wide24.bin  mean=283313 +/-645
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-08T09:34:42+00:00 selection exit=0
+2026-08-08T09:34:42+00:00 === ROUND 11 COMPLETE ===

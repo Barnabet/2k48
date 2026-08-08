@@ -1,0 +1,22 @@
+model runs/final.bin: 24 patterns, 1 stage(s), policy=expectimax
+search: depth=3 cutoff=1.0e-02 adaptive=yes
+  200/200 games                                        
+=== 200 games ===
+mean score          371277
+median score        381304
+  5th pct           289848
+ 95th pct           388108
+max score           627668
+mean moves           14089
+
+    tile    reached    exactly     count
+     512    100.00%      0.00%       200
+    1024    100.00%      0.00%       200
+    2048    100.00%      0.50%       200
+    4096     99.50%      0.00%       199
+    8192     99.50%      1.50%       199
+   16384     98.00%     93.50%       196
+   32768      4.50%      4.50%         9
+
+6283.7 s, 448 moves/s
+wrote runs/depth_ladder/d3_c1e-2_adaptive.csv

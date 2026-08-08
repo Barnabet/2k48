@@ -1,0 +1,20 @@
+model runs/phase1.bin: 8 patterns, 1 stage(s), policy=greedy 1-ply
+  200/500 games  400/500 games                                        
+=== 500 games ===
+mean score          201336
+median score        175672
+  5th pct            44980
+ 95th pct           361500
+max score           470688
+mean moves            8005
+
+    tile    reached    exactly     count
+     512    100.00%      0.20%       500
+    1024     99.80%      1.20%       499
+    2048     98.60%      4.20%       493
+    4096     94.40%      9.80%       472
+    8192     84.60%     46.80%       423
+   16384     37.80%     37.60%       189
+   32768      0.20%      0.20%         1
+
+6.7 s, 597453 moves/s

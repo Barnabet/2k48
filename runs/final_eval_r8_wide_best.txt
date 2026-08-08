@@ -1,0 +1,20 @@
+model runs/r8_wide_best.bin: 16 patterns, 1 stage(s), policy=greedy 1-ply
+  200/20000 games  400/20000 games  600/20000 games  800/20000 games  1000/20000 games  1200/20000 games  1400/20000 games  1600/20000 games  1800/20000 games  2000/20000 games  2200/20000 games  2400/20000 games  2600/20000 games  2800/20000 games  3000/20000 games  3200/20000 games  3400/20000 games  3600/20000 games  3800/20000 games  4000/20000 games  4200/20000 games  4400/20000 games  4600/20000 games  4800/20000 games  5000/20000 games  5200/20000 games  5400/20000 games  5600/20000 games  5800/20000 games  6000/20000 games  6200/20000 games  6400/20000 games  6600/20000 games  6800/20000 games  7000/20000 games  7200/20000 games  7400/20000 games  7600/20000 games  7800/20000 games  8000/20000 games  8200/20000 games  8400/20000 games  8600/20000 games  8800/20000 games  9000/20000 games  9200/20000 games  9400/20000 games  9600/20000 games  9800/20000 games  10000/20000 games  10200/20000 games  10400/20000 games  10600/20000 games  10800/20000 games  11000/20000 games  11200/20000 games  11400/20000 games  11600/20000 games  11800/20000 games  12000/20000 games  12200/20000 games  12400/20000 games  12600/20000 games  12800/20000 games  13000/20000 games  13200/20000 games  13400/20000 games  13600/20000 games  13800/20000 games  14000/20000 games  14200/20000 games  14400/20000 games  14600/20000 games  14800/20000 games  15000/20000 games  15200/20000 games  15400/20000 games  15600/20000 games  15800/20000 games  16000/20000 games  16200/20000 games  16400/20000 games  16600/20000 games  16800/20000 games  17000/20000 games  17200/20000 games  17400/20000 games  17600/20000 games  17800/20000 games  18000/20000 games  18200/20000 games  18400/20000 games  18600/20000 games  18800/20000 games  19000/20000 games  19200/20000 games  19400/20000 games  19600/20000 games  19800/20000 games  20000/20000 games                                        
+=== 20000 games ===
+mean score          267318
+median score        290456
+  5th pct            78152
+ 95th pct           375972
+max score           567128
+mean moves           10301
+
+    tile    reached    exactly     count
+     512     99.98%      0.21%     19996
+    1024     99.77%      0.53%     19953
+    2048     99.24%      1.76%     19848
+    4096     97.48%      4.88%     19496
+    8192     92.59%     23.88%     18519
+   16384     68.72%     68.70%     13744
+   32768      0.02%      0.02%         4
+
+152.9 s, 1347168 moves/s

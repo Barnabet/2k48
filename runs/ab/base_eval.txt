@@ -1,0 +1,20 @@
+model runs/ab/base.bin: 8 patterns, 1 stage(s), policy=greedy 1-ply
+  200/5000 games  400/5000 games  600/5000 games  800/5000 games  1000/5000 games  1200/5000 games  1400/5000 games  1600/5000 games  1800/5000 games  2000/5000 games  2200/5000 games  2400/5000 games  2600/5000 games  2800/5000 games  3000/5000 games  3200/5000 games  3400/5000 games  3600/5000 games  3800/5000 games  4000/5000 games  4200/5000 games  4400/5000 games  4600/5000 games  4800/5000 games  5000/5000 games                                        
+=== 5000 games ===
+mean score          206462
+median score        176328
+  5th pct            56248
+ 95th pct           363596
+max score           527128
+mean moves            8189
+
+    tile    reached    exactly     count
+     512     99.96%      0.16%      4998
+    1024     99.80%      0.88%      4990
+    2048     98.92%      3.50%      4946
+    4096     95.42%      9.72%      4771
+    8192     85.70%     45.72%      4285
+   16384     39.98%     39.92%      1999
+   32768      0.06%      0.06%         3
+
+13.2 s, 3103553 moves/s

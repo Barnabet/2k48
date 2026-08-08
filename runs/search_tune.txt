@@ -1,0 +1,26 @@
+depth    cutoff   adaptive       mean score        moves/s
+1        1e-4     yes                331287          31583
+1        1e-4     no                 300208          94798
+1        1e-3     yes                331287          28533
+1        1e-3     no                 300208          53226
+1        3e-3     yes                331287          33850
+1        3e-3     no                 300208          41263
+1        1e-2     yes                331287          31914
+1        1e-2     no                 300208          74990
+2        1e-4     yes                363050           3149
+2        1e-4     no                 302701           7257
+2        1e-3     yes                350281           3393
+2        1e-3     no                 302701           8273
+2        3e-3     yes                349444           4060
+2        3e-3     no                 302701           8088
+2        1e-2     yes                337123           5579
+2        1e-2     no                 308240           8698
+3        1e-4     yes          timeout>240s              -
+3        1e-4     no           timeout>240s              -
+3        1e-3     yes          timeout>240s              -
+3        1e-3     no           timeout>240s              -
+3        3e-3     yes          timeout>240s              -
+3        3e-3     no                 352326           1168
+3        1e-2     yes                352572           1433
+3        1e-2     no                 363494           2137
+TUNE COMPLETE

@@ -1,0 +1,16 @@
+2026-08-07T00:23:58+00:00 chain armed: waiting for round8_capacity.sh
+2026-08-07T02:11:59+00:00 round 8 done; selection: SELECTED: runs/r8_wide_best.bin  mean=267318 +/-640
+2026-08-07T02:11:59+00:00 starting depth ladder on runs/final.bin
+depth ladder on runs/final.bin, seed 29, 2026-08-07T02:11:59+00:00
+
+config                          games       mean     median      8192     16384     32768
+greedy                           2000     268829     290464    92.80%    69.35%     0.00%
+d1 c1e-4 adaptive                1000     332967     342804    99.10%    90.80%     1.60%
+d2 c1e-4 adaptive                 400     347758     364872    99.00%    93.50%     2.50%
+d3 c1e-2 adaptive                 200     356406     372972    99.00%    93.00%     5.00%
+
+DEPTH LADDER COMPLETE 2026-08-07T03:51:53+00:00
+2026-08-07T03:51:53+00:00 depth ladder exit=0
+2026-08-07T03:51:53+00:00 starting round 9 (restart training A/B)
+2026-08-07T08:01:24+00:00 round 9 exit=0
+2026-08-07T08:01:24+00:00 === CHAIN COMPLETE ===

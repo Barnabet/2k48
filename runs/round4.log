@@ -1,0 +1,22 @@
+2026-08-06T07:23:31+00:00 incumbent preserved: runs/round3_final.bin (234160 at seed 1)
+2026-08-06T07:23:31+00:00 round 4 A/B: alpha 0.1 vs 0.05, 7 threads each, 150 min, from runs/final.bin
+2026-08-06T07:23:31+00:00 keeper hi pid 113066
+2026-08-06T07:23:31+00:00 keeper lo pid 113068
+2026-08-06T07:23:31+00:00 arms launched
+2026-08-06T09:54:34+00:00 arms finished
+final selection — 20000 games per candidate, seed 7, 2026-08-06T09:54:39+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round3_final.bin               233798      677     246020    53.08%     0.04%
+r4_hi.bin                      241694      666     269660    56.58%     0.03%
+r4_hi_best.bin                 242091      670     270200    56.88%     0.03%
+r4_lo.bin                      237888      677     261340    55.07%     0.03%
+r4_lo_best.bin                 235635      677     248484    54.20%     0.05%
+
+SELECTED: runs/r4_hi_best.bin  mean=242091 +/-670
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-06T09:59:52+00:00 selection exit=0
+2026-08-06T09:59:52+00:00 === ROUND 4 COMPLETE ===

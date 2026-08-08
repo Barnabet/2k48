@@ -1,0 +1,14 @@
+final selection — 20000 games per candidate, seed 13, 2026-08-06T16:14:44+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round5_final.bin               249909      650     281564    61.05%     0.06%
+r6_a10.bin                     251776      649     285372    62.37%     0.09%
+r6_a15.bin                     252135      642     285072    62.34%     0.04%
+r6_a10_best.bin                250102      649     283676    61.28%     0.07%
+r6_a15_best.bin                252313      648     285520    62.51%     0.07%
+
+SELECTED: runs/r6_a15_best.bin  mean=252313 +/-648
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin

@@ -1,0 +1,21 @@
+model runs/final.bin: 24 patterns, 1 stage(s), policy=greedy 1-ply
+  200/2000 games  400/2000 games  600/2000 games  800/2000 games  1000/2000 games  1200/2000 games  1400/2000 games  1600/2000 games  1800/2000 games  2000/2000 games                                        
+=== 2000 games ===
+mean score          281848
+median score        324200
+  5th pct            83016
+ 95th pct           380916
+max score           525224
+mean moves           10822
+
+    tile    reached    exactly     count
+     512    100.00%      0.10%      2000
+    1024     99.90%      0.65%      1998
+    2048     99.25%      1.20%      1985
+    4096     98.05%      3.40%      1961
+    8192     94.65%     20.75%      1893
+   16384     73.90%     73.80%      1478
+   32768      0.10%      0.10%         2
+
+27.6 s, 783866 moves/s
+wrote runs/depth_ladder/greedy.csv

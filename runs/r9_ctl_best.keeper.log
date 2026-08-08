@@ -1,0 +1,14 @@
+2026-08-07T03:52:07+00:00 keeper started on runs/r9_ctl.bin: 600 games, 1 threads, poll 180s
+2026-08-07T04:14:18+00:00 NEW BEST mean=269337 (was -1)  2048=99.83% 8192=92.67% 16384=68.50%
+2026-08-07T04:36:26+00:00 kept existing best mean=269337; checkpoint scored 268757
+2026-08-07T04:55:36+00:00 NEW BEST mean=271916 (was 269337)  2048=99.33% 8192=92.33% 16384=69.83%
+2026-08-07T05:14:45+00:00 kept existing best mean=271916; checkpoint scored 265414
+2026-08-07T05:33:54+00:00 kept existing best mean=271916; checkpoint scored 268073
+2026-08-07T05:56:02+00:00 kept existing best mean=271916; checkpoint scored 265901
+2026-08-07T06:15:09+00:00 kept existing best mean=271916; checkpoint scored 268476
+2026-08-07T06:34:19+00:00 kept existing best mean=271916; checkpoint scored 268989
+2026-08-07T06:56:27+00:00 kept existing best mean=271916; checkpoint scored 259418
+2026-08-07T07:15:36+00:00 kept existing best mean=271916; checkpoint scored 260178
+2026-08-07T07:34:45+00:00 NEW BEST mean=274462 (was 271916)  2048=100.00% 8192=94.17% 16384=72.00%
+2026-08-07T07:53:48+00:00 kept existing best mean=274462; checkpoint scored 271602
+2026-08-07T07:53:48+00:00 stop file seen; exiting

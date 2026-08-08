@@ -1,0 +1,25 @@
+=== corrected round 9 judgement ===
+final selection — 20000 games per candidate, seed 23, 2026-08-07T08:07:55+00:00
+
+candidate                        mean      +/-     median     16384     32768
+r9_ctl.bin                     269231      639     290620    69.42%     0.10%
+r9_ctl_best.bin                270284      638     290800    69.81%     0.08%
+r9_rst_best.bin                264035      638     289968    67.38%     0.07%
+
+SELECTED: runs/r9_ctl_best.bin  mean=270284 +/-638
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+
+=== restart autopsy: depth-1 search, 1000 games, seed 29 ===
+--- r9_rst ---
+mean score          335316
+median score        343140
+   16384     91.10%     89.40%       911
+   32768      1.70%      1.70%        17
+--- r9_ctl ---
+mean score          335180
+median score        343340
+   16384     91.40%     90.10%       914
+   32768      1.30%      1.30%        13

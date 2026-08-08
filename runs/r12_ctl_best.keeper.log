@@ -1,0 +1,6 @@
+2026-08-08T13:15:52+00:00 keeper started on /tmp/2m48/r12_ctl.bin: 600 games, 1 threads, poll 300s
+2026-08-08T14:03:12+00:00 high-water mean=289144 (was -1; banking disabled)
+2026-08-08T14:50:14+00:00 checkpoint scored 280399; high-water 289144 (banking disabled)
+2026-08-08T15:37:13+00:00 checkpoint scored 286558; high-water 289144 (banking disabled)
+2026-08-08T16:24:13+00:00 checkpoint scored 288247; high-water 289144 (banking disabled)
+2026-08-08T17:11:22+00:00 checkpoint scored 285038; high-water 289144 (banking disabled)

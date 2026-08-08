@@ -1,0 +1,11 @@
+2026-08-06T13:43:35+00:00 keeper started on runs/r6_a15.bin: 600 games, 1 threads, poll 180s
+2026-08-06T14:02:06+00:00 NEW BEST mean=246024 (was -1)  2048=99.00% 8192=89.67% 16384=59.17%
+2026-08-06T14:14:39+00:00 NEW BEST mean=249978 (was 246024)  2048=98.50% 8192=91.00% 16384=62.00%
+2026-08-06T14:30:06+00:00 kept existing best mean=249978; checkpoint scored 246056
+2026-08-06T14:45:37+00:00 NEW BEST mean=252782 (was 249978)  2048=99.00% 8192=90.83% 16384=61.83%
+2026-08-06T15:01:10+00:00 NEW BEST mean=255880 (was 252782)  2048=98.83% 8192=90.17% 16384=64.33%
+2026-08-06T15:16:41+00:00 NEW BEST mean=256629 (was 255880)  2048=98.83% 8192=92.33% 16384=65.00%
+2026-08-06T15:32:08+00:00 kept existing best mean=256629; checkpoint scored 252267
+2026-08-06T15:44:36+00:00 kept existing best mean=256629; checkpoint scored 253503
+2026-08-06T16:00:05+00:00 kept existing best mean=256629; checkpoint scored 251063
+2026-08-06T16:15:05+00:00 stop file seen; exiting

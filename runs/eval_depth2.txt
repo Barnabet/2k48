@@ -1,0 +1,21 @@
+model runs/final.bin: 8 patterns, 1 stage(s), policy=expectimax
+search: depth=2 cutoff=1.0e-04 adaptive=yes
+  200/400 games  400/400 games                                        
+=== 400 games ===
+mean score          353937
+median score        363300
+  5th pct           176928
+ 95th pct           532588
+max score           629404
+mean moves           13376
+
+    tile    reached    exactly     count
+     512    100.00%      0.00%       400
+    1024    100.00%      0.00%       400
+    2048    100.00%      0.25%       400
+    4096     99.75%      0.75%       399
+    8192     99.00%      5.25%       396
+   16384     93.75%     86.50%       375
+   32768      7.25%      7.25%        29
+
+1003.1 s, 5334 moves/s

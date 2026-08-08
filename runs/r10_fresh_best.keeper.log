@@ -1,0 +1,68 @@
+2026-08-07T08:35:39+00:00 keeper started on runs/r10_fresh.bin: 600 games, 1 threads, poll 300s
+2026-08-07T09:11:12+00:00 NEW BEST mean=90736 (was -1)  2048=97.00% 8192=26.67% 16384=0.17%
+2026-08-07T09:36:43+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T09:42:14+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T09:47:44+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T09:53:15+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T09:58:48+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:04:21+00:00 SKIP keep (mean=108561): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:09:56+00:00 SKIP keep (mean=127492): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:15:33+00:00 SKIP keep (mean=127492): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:21:09+00:00 SKIP keep (mean=127492): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:26:47+00:00 SKIP keep (mean=127492): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:32:21+00:00 SKIP keep (mean=127492): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:38:00+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:43:40+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:49:17+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T10:54:57+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:00:34+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:06:13+00:00 SKIP keep (mean=142441): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:11:52+00:00 SKIP keep (mean=150258): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:17:32+00:00 SKIP keep (mean=150258): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:23:16+00:00 SKIP keep (mean=150258): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:28:55+00:00 SKIP keep (mean=150258): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:34:34+00:00 SKIP keep (mean=150258): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:40:14+00:00 SKIP keep (mean=149349): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:45:53+00:00 SKIP keep (mean=149349): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:51:35+00:00 SKIP keep (mean=149349): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T11:57:13+00:00 SKIP keep (mean=149349): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:02:54+00:00 SKIP keep (mean=149349): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:08:37+00:00 SKIP keep (mean=163155): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:14:18+00:00 SKIP keep (mean=163155): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:19:59+00:00 SKIP keep (mean=163155): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:25:40+00:00 SKIP keep (mean=163155): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:31:21+00:00 SKIP keep (mean=163155): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:37:07+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:42:53+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:48:40+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T12:54:24+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:00:07+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:05:51+00:00 SKIP keep (mean=168787): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:11:36+00:00 SKIP keep (mean=172546): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:17:20+00:00 SKIP keep (mean=172546): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:23:03+00:00 SKIP keep (mean=172546): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:28:48+00:00 SKIP keep (mean=172546): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:34:33+00:00 SKIP keep (mean=172546): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:40:18+00:00 SKIP keep (mean=178925): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:46:05+00:00 SKIP keep (mean=178925): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:51:49+00:00 SKIP keep (mean=178925): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T13:57:36+00:00 SKIP keep (mean=178925): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:03:23+00:00 SKIP keep (mean=178925): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:09:20+00:00 SKIP keep (mean=180832): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:15:15+00:00 SKIP keep (mean=180832): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:21:12+00:00 SKIP keep (mean=180832): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:27:09+00:00 SKIP keep (mean=180832): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:33:05+00:00 SKIP keep (mean=180832): not enough space in /tmp/2m48 even with the lock held
+2026-08-07T14:39:08+00:00 NEW BEST mean=181402 (was 90736)  2048=98.67% 8192=71.50% 16384=34.00%
+2026-08-07T15:10:05+00:00 NEW BEST mean=196643 (was 181402)  2048=99.33% 8192=76.50% 16384=40.33%
+2026-08-07T15:40:54+00:00 kept existing best mean=196643; checkpoint scored 186169
+2026-08-07T16:12:04+00:00 NEW BEST mean=197661 (was 196643)  2048=98.83% 8192=76.00% 16384=41.33%
+2026-08-07T16:38:11+00:00 NEW BEST mean=200939 (was 197661)  2048=98.50% 8192=74.33% 16384=43.83%
+2026-08-07T17:09:09+00:00 NEW BEST mean=208015 (was 200939)  2048=99.00% 8192=75.33% 16384=45.67%
+2026-08-07T17:40:16+00:00 NEW BEST mean=211826 (was 208015)  2048=98.83% 8192=75.83% 16384=47.83%
+2026-08-07T18:11:32+00:00 NEW BEST mean=214904 (was 211826)  2048=99.17% 8192=79.67% 16384=47.17%
+2026-08-07T18:37:30+00:00 NEW BEST mean=216489 (was 214904)  2048=98.67% 8192=78.50% 16384=47.17%
+2026-08-07T19:08:27+00:00 kept existing best mean=216489; checkpoint scored 212176
+2026-08-07T19:39:29+00:00 NEW BEST mean=221704 (was 216489)  2048=99.17% 8192=79.17% 16384=51.17%
+2026-08-07T20:10:26+00:00 kept existing best mean=221704; checkpoint scored 221308
+2026-08-07T20:40:26+00:00 stop file seen; exiting

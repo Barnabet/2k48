@@ -1,0 +1,9 @@
+depth ladder on runs/final.bin, seed 29, 2026-08-08T09:37:37+00:00
+
+config                          games       mean     median      8192     16384     32768
+greedy                           2000     281848     324200    94.65%    73.90%     0.10%
+d1 c1e-4 adaptive                1000     340887     363196    99.00%    92.10%     1.40%
+d2 c1e-4 adaptive                 400     361086     377564   100.00%    95.75%     3.25%
+d3 c1e-2 adaptive                 200     371277     381304    99.50%    98.00%     4.50%
+
+DEPTH LADDER COMPLETE 2026-08-08T12:49:06+00:00

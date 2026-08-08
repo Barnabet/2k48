@@ -1,0 +1,12 @@
+final selection — 20000 games per candidate, seed 23, 2026-08-07T08:07:55+00:00
+
+candidate                        mean      +/-     median     16384     32768
+r9_ctl.bin                     269231      639     290620    69.42%     0.10%
+r9_ctl_best.bin                270284      638     290800    69.81%     0.08%
+r9_rst_best.bin                264035      638     289968    67.38%     0.07%
+
+SELECTED: runs/r9_ctl_best.bin  mean=270284 +/-638
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin

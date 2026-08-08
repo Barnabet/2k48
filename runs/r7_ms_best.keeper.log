@@ -1,0 +1,13 @@
+2026-08-06T17:47:02+00:00 keeper started on runs/r7_ms.bin: 600 games, 1 threads, poll 180s
+2026-08-06T18:08:36+00:00 NEW BEST mean=257400 (was -1)  2048=98.67% 8192=91.67% 16384=64.33%
+2026-08-06T18:30:20+00:00 NEW BEST mean=259564 (was 257400)  2048=99.00% 8192=92.50% 16384=67.00%
+2026-08-06T18:48:51+00:00 kept existing best mean=259564; checkpoint scored 248076
+2026-08-06T19:10:25+00:00 kept existing best mean=259564; checkpoint scored 248359
+2026-08-06T19:28:55+00:00 kept existing best mean=259564; checkpoint scored 255886
+2026-08-06T19:50:30+00:00 kept existing best mean=259564; checkpoint scored 254194
+2026-08-06T20:09:00+00:00 kept existing best mean=259564; checkpoint scored 246236
+2026-08-06T20:30:43+00:00 NEW BEST mean=261615 (was 259564)  2048=99.83% 8192=93.83% 16384=67.50%
+2026-08-06T20:49:14+00:00 kept existing best mean=261615; checkpoint scored 252046
+2026-08-06T21:10:47+00:00 kept existing best mean=261615; checkpoint scored 251417
+2026-08-06T21:29:17+00:00 kept existing best mean=261615; checkpoint scored 250019
+2026-08-06T21:50:17+00:00 stop file seen; exiting

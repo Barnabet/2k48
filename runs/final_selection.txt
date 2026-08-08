@@ -1,0 +1,12 @@
+final selection — 20000 games per candidate, 2026-08-06T07:16:03+00:00
+
+candidate                        mean      +/-     median     16384     32768
+model.bin                      234160      676     246232    53.56%     0.01%
+final_best.bin                 229624      676     236888    51.09%     0.05%
+phase2.bin                     232885      674     245768    52.92%     0.04%
+
+SELECTED: runs/model.bin  mean=234160 +/-676
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin

@@ -1,0 +1,14 @@
+2026-08-05T20:57:37+00:00 keeper started: 500 games, 3 threads, every 60s
+2026-08-05T20:57:48+00:00 NEW BEST mean=166407 (was -1) from runs/phase1.bin  2048=99.00% 8192=75.60% 16384=24.80%
+2026-08-05T21:15:58+00:00 resuming with existing best mean=166407
+2026-08-05T21:15:58+00:00 keeper started: 500 games, 3 threads, poll 60s
+2026-08-05T21:16:05+00:00 kept existing best mean=166407; runs/phase1.bin scored 166407
+2026-08-05T21:18:16+00:00 NEW BEST mean=173396 (was 166407) from runs/phase1.bin  2048=98.00% 8192=79.40% 16384=26.40%
+2026-08-05T21:38:24+00:00 kept existing best mean=173396; runs/phase1.bin scored 171784
+2026-08-05T21:58:36+00:00 NEW BEST mean=174008 (was 173396) from runs/phase1.bin  2048=98.80% 8192=82.00% 16384=21.60%
+2026-08-05T22:17:49+00:00 NEW BEST mean=176582 (was 174008) from runs/phase1.bin  2048=98.80% 8192=80.00% 16384=25.80%
+2026-08-05T22:38:01+00:00 NEW BEST mean=188847 (was 176582) from runs/phase1.bin  2048=97.80% 8192=85.00% 16384=32.60%
+2026-08-05T22:58:14+00:00 NEW BEST mean=196052 (was 188847) from runs/phase1.bin  2048=98.60% 8192=85.40% 16384=35.40%
+2026-08-05T23:18:27+00:00 NEW BEST mean=197659 (was 196052) from runs/phase1.bin  2048=98.00% 8192=86.40% 16384=34.40%
+2026-08-05T23:38:39+00:00 NEW BEST mean=201336 (was 197659) from runs/phase1.bin  2048=98.60% 8192=84.60% 16384=37.80%
+2026-08-05T23:58:52+00:00 NEW BEST mean=207624 (was 201336) from runs/phase1.bin  2048=99.20% 8192=85.60% 16384=40.40%

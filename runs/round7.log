@@ -1,0 +1,22 @@
+2026-08-06T17:47:02+00:00 incumbent preserved: runs/round6_final.bin (251474 seed 1 / 252313 seed 13)
+2026-08-06T17:47:02+00:00 round 7: multi-stage(13,14) vs single-stage control, 7 threads each, 240 min
+2026-08-06T17:47:02+00:00 keeper ms pid 162101
+2026-08-06T17:47:02+00:00 keeper ss pid 162103
+2026-08-06T17:47:02+00:00 arms launched
+2026-08-06T21:48:08+00:00 arms finished
+final selection — 20000 games per candidate, seed 17, 2026-08-06T21:48:13+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round6_final.bin               253049      647     285756    62.74%     0.10%
+r7_ms.bin                      253033      632     285532    64.28%     0.04%
+r7_ss.bin                      255650      641     286688    64.30%     0.09%
+r7_ms_best.bin                 253412      626     285824    64.45%     0.03%
+r7_ss_best.bin                 253539      645     286244    63.05%     0.04%
+
+SELECTED: runs/r7_ss.bin  mean=255650 +/-641
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-06T21:54:01+00:00 selection exit=0
+2026-08-06T21:54:01+00:00 === ROUND 7 COMPLETE ===

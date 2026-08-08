@@ -1,0 +1,15 @@
+# build outputs
+bin/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# model checkpoints — too large for git; shipped as GitHub release assets
+*.bin
+*.bin.xz
+*.bin.tmp
+
+# scratch
+*.stop
+*.copy.err
+nohup.out

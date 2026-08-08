@@ -1,0 +1,539 @@
+<title>2048 Agent Telemetry</title>
+
+<style>
+  /* ---- tokens -------------------------------------------------------- */
+  :root {
+    --ground: #F1F3F2;
+    --surface: #FFFFFF;
+    --surface-2: #E8ECEB;
+    --ink: #111A1F;
+    --ink-2: #44575F;
+    --muted: #75888F;
+    --line: #D2D9D8;
+    --accent: #0C8271;
+    --accent-ink: #FFFFFF;
+    --accent-wash: rgba(12, 130, 113, 0.10);
+    --shadow: 0 1px 2px rgba(17, 26, 31, 0.06), 0 8px 24px rgba(17, 26, 31, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0F1519;
+      --surface: #161E24;
+      --surface-2: #1F2A31;
+      --ink: #DCE4E7;
+      --ink-2: #9DAFB7;
+      --muted: #6E828C;
+      --line: #27343B;
+      --accent: #3FBFA8;
+      --accent-ink: #06231E;
+      --accent-wash: rgba(63, 191, 168, 0.14);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+  }
+  /* The viewer's own toggle must win over the OS preference, both ways. */
+  :root[data-theme="light"] {
+    --ground: #F1F3F2; --surface: #FFFFFF; --surface-2: #E8ECEB;
+    --ink: #111A1F; --ink-2: #44575F; --muted: #75888F; --line: #D2D9D8;
+    --accent: #0C8271; --accent-ink: #FFFFFF; --accent-wash: rgba(12, 130, 113, 0.10);
+    --shadow: 0 1px 2px rgba(17, 26, 31, 0.06), 0 8px 24px rgba(17, 26, 31, 0.05);
+  }
+  :root[data-theme="dark"] {
+    --ground: #0F1519; --surface: #161E24; --surface-2: #1F2A31;
+    --ink: #DCE4E7; --ink-2: #9DAFB7; --muted: #6E828C; --line: #27343B;
+    --accent: #3FBFA8; --accent-ink: #06231E; --accent-wash: rgba(63, 191, 168, 0.14);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Tile ramp encodes magnitude, so it stays fixed across themes — the same
+     reasoning as a heatmap legend. Mid-luminance throughout so white text
+     works on every step and no tile dominates either ground. */
+  :root {
+    --t1:  #4A5A63; --t2:  #45707C; --t3:  #3D8794; --t4:  #329B9B;
+    --t5:  #34AC8C; --t6:  #54B96F; --t7:  #83C458; --t8:  #B0C94C;
+    --t9:  #D9C74B; --t10: #F0B448; --t11: #F59440; --t12: #EF7440;
+    --t13: #E45445; --t14: #D33A55; --t15: #B52E73;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 56px; }
+
+  /* ---- header -------------------------------------------------------- */
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; margin-bottom: 6px; }
+  h1 {
+    font-size: 20px; font-weight: 600; margin: 0;
+    letter-spacing: -0.01em; text-wrap: balance;
+  }
+  .sub {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink-2); font-size: 13px; max-width: 62ch; margin: 4px 0 20px;
+    line-height: 1.6;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-left: auto; }
+  .chip {
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-2); background: var(--surface-2);
+    border: 1px solid var(--line); border-radius: 3px; padding: 3px 8px;
+  }
+
+  /* ---- layout -------------------------------------------------------- */
+  .panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .panels { grid-template-columns: minmax(0, 1fr); } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; padding: 16px; box-shadow: var(--shadow);
+  }
+  .card + .card { margin-top: 16px; }
+
+  .label {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 10px;
+  }
+
+  /* ---- readout ------------------------------------------------------- */
+  .readout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+  .stat .k { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .stat .v { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  .stat .v.small { font-size: 17px; }
+
+  /* ---- board --------------------------------------------------------- */
+  .board {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    aspect-ratio: 1; background: var(--surface-2);
+    border-radius: 5px; padding: 6px;
+  }
+  .cell {
+    border-radius: 4px; display: grid; place-items: center;
+    background: transparent; color: #fff; font-weight: 600;
+    font-size: clamp(11px, 2.4vw, 21px); letter-spacing: -0.02em;
+    border: 1px solid transparent;
+  }
+  .cell.empty { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+  .cell.long { font-size: clamp(9px, 1.9vw, 16px); }
+  @media (prefers-reduced-motion: no-preference) {
+    .cell { transition: background-color 90ms linear; }
+  }
+
+  /* ---- transport ----------------------------------------------------- */
+  .transport { display: flex; align-items: center; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  button {
+    font: inherit; font-size: 12px; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: 4px; padding: 6px 11px; cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; min-width: 74px; }
+  button.primary:hover { color: var(--accent-ink); filter: brightness(1.08); }
+
+  input[type="range"] { accent-color: var(--accent); height: 20px; cursor: pointer; }
+  input[type="range"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .scrub { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+  .scrub input { flex: 1; min-width: 0; }
+  .speed { display: flex; align-items: center; gap: 7px; margin-left: auto; color: var(--muted); font-size: 11px; }
+  .speed input { width: 108px; }
+
+  /* ---- decision panel ------------------------------------------------ */
+  .moves { display: flex; flex-direction: column; gap: 7px; }
+  .move { display: grid; grid-template-columns: 52px 1fr 92px; align-items: center; gap: 10px; }
+  .move .name { font-size: 11px; letter-spacing: 0.08em; color: var(--ink-2); }
+  .move .rail { height: 20px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .move .fill { height: 100%; background: color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 3px; }
+  .move .num { text-align: right; font-size: 12px; color: var(--ink-2); }
+  .move.chosen .name { color: var(--accent); font-weight: 700; }
+  .move.chosen .fill { background: var(--accent); }
+  .move.chosen .num { color: var(--ink); font-weight: 700; }
+  .move.illegal .name, .move.illegal .num { color: var(--muted); opacity: 0.55; }
+  .move.illegal .rail { background: repeating-linear-gradient(135deg, transparent 0 5px, color-mix(in srgb, var(--ink) 7%, transparent) 5px 10px); }
+  @media (prefers-reduced-motion: no-preference) {
+    .move .fill { transition: width 100ms linear, background-color 100ms linear; }
+  }
+
+  .margin { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
+  .margin .v { font-size: 17px; font-weight: 600; }
+  .margin .note { font-size: 11px; color: var(--muted); font-family: system-ui, sans-serif; }
+
+  canvas { display: block; width: 100%; height: 120px; }
+
+  /* ---- game strip ---------------------------------------------------- */
+  .strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px; }
+  .game {
+    text-align: left; padding: 9px 11px; background: var(--surface-2);
+    border: 1px solid var(--line); border-radius: 5px; cursor: pointer;
+    border-left: 3px solid var(--line); display: block; width: 100%;
+  }
+  .game:hover { border-color: var(--accent); }
+  .game[aria-current="true"] { background: var(--accent-wash); border-color: var(--accent); }
+  .game .tile { font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+  .game .sc { font-size: 11px; color: var(--ink-2); }
+  .game .mv { font-size: 10px; color: var(--muted); }
+
+  .foot {
+    margin-top: 22px; font-family: system-ui, -apple-system, sans-serif;
+    font-size: 12px; color: var(--muted); line-height: 1.65; max-width: 74ch;
+  }
+  .foot code { font-family: inherit; font-family: ui-monospace, Menlo, monospace; color: var(--ink-2); }
+  kbd {
+    font: inherit; font-size: 10px; background: var(--surface-2); color: var(--ink-2);
+    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 3px; padding: 1px 4px;
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>2048 Agent Telemetry</h1>
+    <div class="meta" id="meta"></div>
+  </header>
+  <p class="sub">
+    Recorded self-play from an n-tuple value network trained with TD(0) afterstate
+    learning. The panel on the right shows the agent's actual decision criterion for
+    every move, so you can watch it turn down a large immediate merge because the
+    resulting board is worth less.
+  </p>
+
+  <div class="panels">
+    <div>
+      <div class="card">
+        <div class="readout">
+          <div class="stat"><div class="k">Score</div><div class="v" id="score">0</div></div>
+          <div class="stat"><div class="k">Largest tile</div><div class="v" id="best">0</div></div>
+          <div class="stat"><div class="k">Move</div><div class="v small" id="moveno">0</div></div>
+        </div>
+        <div class="board" id="board" role="img" aria-label="2048 board"></div>
+        <div class="transport">
+          <button class="primary" id="play" aria-label="Play or pause">Play</button>
+          <button id="stepb" aria-label="Step back">&#8592;</button>
+          <button id="stepf" aria-label="Step forward">&#8594;</button>
+          <button id="restart">Restart</button>
+          <label class="speed">
+            <span id="speedlab">32/s</span>
+            <input type="range" id="speed" min="0" max="5" step="1" value="2" aria-label="Playback speed">
+          </label>
+        </div>
+        <div class="scrub">
+          <input type="range" id="scrub" min="0" max="1" value="0" aria-label="Scrub through moves">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <p class="label">Move evaluation &mdash; reward + V(afterstate)</p>
+        <div class="moves" id="moves"></div>
+        <div class="margin">
+          <span class="v" id="marginv">&mdash;</span>
+          <span class="note" id="marginn">margin over the runner-up</span>
+        </div>
+      </div>
+      <div class="card">
+        <p class="label">Value of the chosen board, over the game</p>
+        <canvas id="trace" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <p class="label">Recorded games &mdash; chosen to span the outcome range</p>
+    <div class="strip" id="strip"></div>
+  </div>
+
+  <p class="foot">
+    Bars are scaled within each move, between the worst and best legal option, so
+    near-ties stay visible &mdash; the numbers are the absolute values. A small margin
+    means the agent was nearly indifferent; a large one means the move was forced in
+    all but name. Values are the 1-ply criterion the greedy policy actually maximises.
+    <br>
+    <kbd>Space</kbd> play/pause &nbsp; <kbd>&#8592;</kbd><kbd>&#8594;</kbd> step &nbsp; <kbd>Home</kbd>/<kbd>End</kbd> jump
+  </p>
+</div>
+
+<script id="gamedata" type="application/json">__DATA__</script>
+
+<script>
+(function () {
+  "use strict";
+
+  const DATA = JSON.parse(document.getElementById("gamedata").textContent);
+  const NAMES = ["UP", "RIGHT", "DOWN", "LEFT"];
+  const SPEEDS = [2, 8, 32, 128, 512, 2048];
+
+  // ---- parse traces -------------------------------------------------
+  // Each line is: boardHex action reward v0 v1 v2 v3   ("-" where illegal)
+  DATA.games.forEach(function (g) {
+    const rows = g.trace.split("\n");
+    g.frames = new Array(rows.length);
+    let score = 0;
+    for (let i = 0; i < rows.length; i++) {
+      const p = rows[i].split(" ");
+      const action = p[1] === "-" ? -1 : +p[1];
+      const reward = +p[2] || 0;
+      const totals = [3, 4, 5, 6].map(function (k) { return p[k] === "-" ? null : +p[k]; });
+      g.frames[i] = { hex: p[0], action: action, reward: reward, totals: totals, score: score };
+      score += reward;
+    }
+    g.finalScore = score;
+  });
+
+  let game = DATA.games[DATA.games.length - 1];   // open on the best game
+  let idx = 0;
+  let playing = false;
+  let speedIdx = 2;
+
+  const $ = function (id) { return document.getElementById(id); };
+  const boardEl = $("board"), movesEl = $("moves"), stripEl = $("strip");
+  const scrub = $("scrub"), speed = $("speed"), canvas = $("trace");
+
+  // ---- board --------------------------------------------------------
+  const cells = [];
+  for (let i = 0; i < 16; i++) {
+    const d = document.createElement("div");
+    d.className = "cell empty";
+    boardEl.appendChild(d);
+    cells.push(d);
+  }
+
+  // The hex string is big-endian over 16 nibbles, while cell i lives at
+  // bits 4i — so cell i is the character at position 15 - i.
+  function tileAt(hex, i) { return parseInt(hex[15 - i], 16); }
+
+  function drawBoard(hex) {
+    for (let r = 0; r < 4; r++) {
+      for (let c = 0; c < 4; c++) {
+        const v = tileAt(hex, r * 4 + c);
+        const el = cells[r * 4 + c];
+        if (!v) {
+          el.className = "cell empty";
+          el.textContent = "";
+          el.style.background = "";
+        } else {
+          const n = Math.pow(2, v);
+          const s = String(n);
+          el.className = "cell" + (s.length > 4 ? " long" : "");
+          el.textContent = s;
+          el.style.background = "var(--t" + v + ")";
+        }
+      }
+    }
+  }
+
+  // ---- decision panel ------------------------------------------------
+  const moveRows = NAMES.map(function (name) {
+    const row = document.createElement("div");
+    row.className = "move";
+    row.innerHTML = '<span class="name"></span><span class="rail"><span class="fill"></span></span><span class="num"></span>';
+    row.querySelector(".name").textContent = name;
+    movesEl.appendChild(row);
+    return { row: row, fill: row.querySelector(".fill"), num: row.querySelector(".num") };
+  });
+
+  function drawMoves(f) {
+    const legal = f.totals.filter(function (t) { return t !== null; });
+    const hi = legal.length ? Math.max.apply(null, legal) : 0;
+    const lo = legal.length ? Math.min.apply(null, legal) : 0;
+    const span = hi - lo;
+
+    for (let a = 0; a < 4; a++) {
+      const t = f.totals[a], m = moveRows[a];
+      if (t === null) {
+        m.row.className = "move illegal";
+        m.fill.style.width = "0%";
+        m.num.textContent = "illegal";
+      } else {
+        m.row.className = "move" + (a === f.action ? " chosen" : "");
+        // Floor at 6% so an option that is merely worst still reads as present.
+        const frac = span > 0 ? (t - lo) / span : 1;
+        m.fill.style.width = (6 + 94 * frac).toFixed(1) + "%";
+        m.num.textContent = Math.round(t).toLocaleString();
+      }
+    }
+
+    const sorted = legal.slice().sort(function (a, b) { return b - a; });
+    if (sorted.length >= 2) {
+      const d = sorted[0] - sorted[1];
+      $("marginv").textContent = "+" + Math.round(d).toLocaleString();
+      $("marginn").textContent = d < 200
+        ? "a near-tie — the agent was almost indifferent"
+        : "margin over the runner-up";
+    } else {
+      $("marginv").textContent = sorted.length ? "forced" : "—";
+      $("marginn").textContent = sorted.length ? "only one legal move" : "no legal move — game over";
+    }
+  }
+
+  // ---- value trace ----------------------------------------------------
+  function drawTrace() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth, h = 120;
+    canvas.width = Math.max(1, Math.round(w * dpr));
+    canvas.height = Math.round(h * dpr);
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    const css = getComputedStyle(document.documentElement);
+    const accent = css.getPropertyValue("--accent").trim();
+    const line = css.getPropertyValue("--line").trim();
+    const muted = css.getPropertyValue("--muted").trim();
+
+    const n = game.frames.length;
+    // V of the chosen board is (reward + V) minus the reward.
+    const val = function (i) {
+      const f = game.frames[i];
+      return f.action < 0 ? 0 : (f.totals[f.action] - f.reward);
+    };
+
+    let hi = 0;
+    for (let i = 0; i < n; i++) hi = Math.max(hi, val(i));
+    if (hi <= 0) hi = 1;
+
+    const pad = 6;
+    const x = function (i) { return pad + (w - 2 * pad) * (n > 1 ? i / (n - 1) : 0); };
+    const y = function (v) { return h - pad - (h - 2 * pad) * (v / hi); };
+
+    ctx.strokeStyle = line;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, h - pad + 0.5); ctx.lineTo(w, h - pad + 0.5); ctx.stroke();
+
+    // Downsample to roughly one sample per pixel — traces run to 10k+ moves.
+    const step = Math.max(1, Math.floor(n / Math.max(1, w)));
+    ctx.beginPath();
+    for (let i = 0; i < n; i += step) {
+      const px = x(i), py = y(val(i));
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.lineTo(x(n - 1), h - pad);
+    ctx.lineTo(x(0), h - pad);
+    ctx.closePath();
+    ctx.fillStyle = accent.replace(")", ", 0.13)").replace("rgb", "rgba");
+    ctx.globalAlpha = 0.16;
+    ctx.fillStyle = accent;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    const px = x(idx);
+    ctx.strokeStyle = muted;
+    ctx.beginPath(); ctx.moveTo(px, pad - 4); ctx.lineTo(px, h - pad); ctx.stroke();
+    ctx.fillStyle = accent;
+    ctx.beginPath(); ctx.arc(px, y(val(idx)), 3, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // ---- render ---------------------------------------------------------
+  function render() {
+    const f = game.frames[idx];
+    drawBoard(f.hex);
+    drawMoves(f);
+    $("score").textContent = f.score.toLocaleString();
+    $("moveno").textContent = idx.toLocaleString() + " / " + (game.frames.length - 1).toLocaleString();
+    let best = 0;
+    for (let i = 0; i < 16; i++) best = Math.max(best, tileAt(f.hex, i));
+    $("best").textContent = best ? Math.pow(2, best).toLocaleString() : "0";
+    scrub.value = String(idx);
+    drawTrace();
+  }
+
+  function loadGame(g) {
+    game = g;
+    idx = 0;
+    scrub.max = String(g.frames.length - 1);
+    Array.prototype.forEach.call(stripEl.children, function (el) {
+      el.setAttribute("aria-current", String(el.dataset.seed === String(g.seed)));
+    });
+    render();
+  }
+
+  // ---- game strip ------------------------------------------------------
+  DATA.games.slice().reverse().forEach(function (g) {
+    const b = document.createElement("button");
+    b.className = "game";
+    b.dataset.seed = String(g.seed);
+    const exp = Math.round(Math.log2(g.maxTile));
+    b.style.borderLeftColor = "var(--t" + exp + ")";
+    b.innerHTML = '<div class="tile"></div><div class="sc"></div><div class="mv"></div>';
+    b.querySelector(".tile").textContent = g.maxTile.toLocaleString();
+    b.querySelector(".sc").textContent = g.score.toLocaleString() + " pts";
+    b.querySelector(".mv").textContent = g.moves.toLocaleString() + " moves";
+    b.addEventListener("click", function () { playing = false; $("play").textContent = "Play"; loadGame(g); });
+    stripEl.appendChild(b);
+  });
+
+  // ---- meta ------------------------------------------------------------
+  (function () {
+    const m = $("meta");
+    const bits = [DATA.policy, DATA.model];
+    if (DATA.stages) bits.push(DATA.stages > 1 ? DATA.stages + " stages" : "single stage");
+    if (DATA.scan) bits.push(DATA.scan.games + " games sampled · mean " + Math.round(DATA.scan.mean).toLocaleString());
+    bits.forEach(function (t) {
+      const s = document.createElement("span");
+      s.className = "chip";
+      s.textContent = t;
+      m.appendChild(s);
+    });
+  })();
+
+  // ---- transport -------------------------------------------------------
+  function setIdx(i) {
+    idx = Math.max(0, Math.min(game.frames.length - 1, i));
+    render();
+  }
+
+  $("play").addEventListener("click", function () {
+    if (idx >= game.frames.length - 1) idx = 0;
+    playing = !playing;
+    this.textContent = playing ? "Pause" : "Play";
+  });
+  $("stepf").addEventListener("click", function () { playing = false; $("play").textContent = "Play"; setIdx(idx + 1); });
+  $("stepb").addEventListener("click", function () { playing = false; $("play").textContent = "Play"; setIdx(idx - 1); });
+  $("restart").addEventListener("click", function () { setIdx(0); });
+  scrub.addEventListener("input", function () { playing = false; $("play").textContent = "Play"; setIdx(+this.value); });
+  speed.addEventListener("input", function () {
+    speedIdx = +this.value;
+    $("speedlab").textContent = SPEEDS[speedIdx] + "/s";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.target.tagName === "INPUT") return;
+    if (e.key === " ") { e.preventDefault(); $("play").click(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); $("stepf").click(); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); $("stepb").click(); }
+    else if (e.key === "Home") { e.preventDefault(); setIdx(0); }
+    else if (e.key === "End") { e.preventDefault(); setIdx(game.frames.length - 1); }
+  });
+
+  let last = 0, acc = 0;
+  function tick(ts) {
+    if (last) acc += (ts - last) / 1000;
+    last = ts;
+    if (playing) {
+      const per = 1 / SPEEDS[speedIdx];
+      let advanced = false;
+      while (acc >= per && idx < game.frames.length - 1) { acc -= per; idx++; advanced = true; }
+      if (acc > 0.25) acc = 0;
+      if (advanced) render();
+      if (idx >= game.frames.length - 1) { playing = false; $("play").textContent = "Play"; }
+    } else {
+      acc = 0;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener("resize", drawTrace);
+  loadGame(game);
+  requestAnimationFrame(tick);
+})();
+</script>

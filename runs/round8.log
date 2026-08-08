@@ -1,0 +1,24 @@
+2026-08-06T22:01:53+00:00 incumbent preserved: runs/round7_final.bin (255650 at seed 17)
+2026-08-06T22:01:53+00:00 round 8: 16-pattern widened vs 8-pattern control, 7 threads each, 240 min
+2026-08-06T22:01:53+00:00 keeper wide pid 181428
+2026-08-06T22:01:53+00:00 keeper ctl pid 181430
+2026-08-06T22:01:53+00:00 arms launched
+2026-08-07T02:02:59+00:00 arms finished
+2026-08-07T02:02:59+00:00 arm wide episodes: 346000
+2026-08-07T02:02:59+00:00 arm ctl episodes: 732000
+final selection — 20000 games per candidate, seed 19, 2026-08-07T02:03:04+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round7_final.bin               255962      641     287116    64.44%     0.04%
+r8_wide.bin                    267029      640     290404    68.70%     0.07%
+r8_ctl.bin                     258277      640     288332    65.83%     0.06%
+r8_wide_best.bin               267318      640     290456    68.72%     0.02%
+r8_ctl_best.bin                258248      641     288508    65.35%     0.07%
+
+SELECTED: runs/r8_wide_best.bin  mean=267318 +/-640
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-07T02:11:37+00:00 selection exit=0
+2026-08-07T02:11:37+00:00 === ROUND 8 COMPLETE ===

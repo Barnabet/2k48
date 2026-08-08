@@ -1,0 +1,19 @@
+2026-08-07T08:35:39+00:00 incumbent preserved: runs/round9_final.bin
+2026-08-07T08:35:39+00:00 restart pool seeded from round 9 (524288 bytes)
+2026-08-07T08:35:39+00:00 round 10: fresh 16-pattern + restart(frac=0 tile=14), 14 threads, 720 min
+2026-08-07T08:35:39+00:00 keeper pid 229654
+2026-08-07T20:35:47+00:00 trainer exit=0 episodes: 2896000
+final selection — 20000 games per candidate, seed 31, 2026-08-07T20:35:52+00:00
+
+candidate                        mean      +/-     median     16384     32768
+round9_final.bin               268124      640     290440    69.02%     0.09%
+r10_fresh.bin                  222865      679     222788    50.12%     0.03%
+r10_fresh_best.bin             219277      679     179124    48.66%     0.02%
+
+SELECTED: runs/round9_final.bin  mean=268124 +/-640
+
+Differences under ~2x the pooled standard error are not real; where
+candidates tie, the earlier/simpler one is the safer choice.
+wrote runs/final.bin
+2026-08-07T20:43:01+00:00 selection exit=0
+2026-08-07T20:43:01+00:00 === ROUND 10 COMPLETE ===

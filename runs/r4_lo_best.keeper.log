@@ -1,0 +1,11 @@
+2026-08-06T07:23:31+00:00 keeper started on runs/r4_lo.bin: 600 games, 1 threads, poll 180s
+2026-08-06T07:42:03+00:00 NEW BEST mean=239908 (was -1)  2048=99.83% 8192=90.83% 16384=53.83%
+2026-08-06T07:54:29+00:00 kept existing best mean=239908; checkpoint scored 237259
+2026-08-06T08:09:57+00:00 kept existing best mean=239908; checkpoint scored 237577
+2026-08-06T08:25:27+00:00 kept existing best mean=239908; checkpoint scored 236575
+2026-08-06T08:40:56+00:00 kept existing best mean=239908; checkpoint scored 236013
+2026-08-06T08:56:26+00:00 kept existing best mean=239908; checkpoint scored 234745
+2026-08-06T09:12:00+00:00 NEW BEST mean=244545 (was 239908)  2048=99.67% 8192=92.17% 16384=56.83%
+2026-08-06T09:24:27+00:00 kept existing best mean=244545; checkpoint scored 234480
+2026-08-06T09:39:54+00:00 kept existing best mean=244545; checkpoint scored 229167
+2026-08-06T09:54:54+00:00 stop file seen; exiting
