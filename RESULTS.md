@@ -325,12 +325,22 @@ After rounds 7–11 the map is: capacity pays and keeps paying at an undiminishe
 rate (Experiments 5 and 8), the distribution tricks do not (Experiments 4 and
 6), history is not the problem (Experiment 7), and search converts
 value-function quality into score at a steep but known rate (the depth ladder
-above). Two widenings in, the capacity curve has not bent — 8→16 gained +11k,
-16→24 gained +14.6k — so the next question is where it does. Round 12
-(24 → 32 patterns, same prefix-copy recipe) is the obvious next experiment;
-the practical constraints are now storage and speed rather than ideas, since a
-32-pattern checkpoint is 6.4 GB and each widening cuts episodes/hour by
-another quarter.
+above). Two widenings in, the capacity curve had not bent — 8→16 gained +11k,
+16→24 gained +14.6k — so round 12 (24 → 32 patterns, same prefix-copy
+recipe, 8 exhaustively-enumerated novel shapes vs a live 24-pattern control)
+asked where it does. The run was stopped at 4.3 of 15 hours to ship this
+repository, so the round has no verdict, but the partial curve is worth
+recording honestly: at 158k post-widening episodes the wide arm showed *no
+separation* from the control (window means ~285.3k vs ~285.9k) and sat only
++2k over its base, where round 11's widening was +8k over its own base at
+the same episode count. That is consistent with the capacity curve finally
+bending — the 8 added shapes were the best of only 49 remaining novel
+symmetry classes, weaker material than earlier rounds got to add — though
+28% of a run is far too early to call it. The depth ladder points the same
+direction: the round-11 champion reaches 16384 in 98% of depth-3 games but
+converts fewer than 1 in 20 into 32768, so the remaining distance to
+"consistent 32768s" likely lives in the post-16384 phase of play, not in
+more pattern capacity.
 
 ## Methodology notes
 
